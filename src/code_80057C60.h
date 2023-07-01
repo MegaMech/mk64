@@ -200,6 +200,8 @@ void func_8006E8C4(Player*, s8, s8);
 void func_8006E940(Player*, s8, s8);
 
 
+extern Camera *D_8018CF14;
+extern Player *D_8018CF1C;
 
 extern s8 D_801657B2;
 extern s8 D_801657C8;

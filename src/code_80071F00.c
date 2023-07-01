@@ -1297,7 +1297,6 @@ void func_80074924(s32 objectIndex) {
     s32 sp28;
     s32 sp24;
     s32 sp20;
-    s16 temp_v0;
     s32 temp_a0;
     struct _struct_D_800E6F30_0x3 *temp_v0_2;
     struct _struct_D_800E6F48_0x3 *temp_v1;
@@ -1305,8 +1304,7 @@ void func_80074924(s32 objectIndex) {
 
     temp_s0 = &D_80165C18[objectIndex];
     temp_s0->unk_000 = 0.15f;
-    temp_v0 = gCurrentCourseId;
-    switch (temp_v0) {                              /* irregular */
+    switch (gCurrentCourseId) {                              /* irregular */
     case 0:
         sp2C = random_int(0x00C8U);
         sp28 = random_int(D_80165748);
@@ -2879,28 +2877,28 @@ void func_80078C70(s32 arg0) {
     s32 camera;
 
     if (D_801657C8 == 0) {
-        switch (arg0) {                             /* switch 1 */
-        case 0:                                     /* switch 1 */
+        switch (arg0) {
+        case 0:
             sp1C = 0;
             camera = camera1;
             D_8018D200 = D_80150130[0] + 40.0f;
             break;
-        case 1:                                     /* switch 1 */
+        case 1:
             sp1C = 0;
             camera = camera1;
             D_8018D200 = D_80150130[0] + 40.0f;
             break;
-        case 2:                                     /* switch 1 */
+        case 2:
             camera = camera2;
             sp1C = D_8018D1F0;
             D_8018D200 = D_80150130[1] + 40.0f;
             break;
-        case 3:                                     /* switch 1 */
+        case 3:
             sp1C = 0;
             camera = camera1;
             D_8018D200 = D_80150130[0] + 40.0f;
             break;
-        case 4:                                     /* switch 1 */
+        case 4:
             camera = camera2;
             sp1C = D_8018D1F0;
             D_8018D200 = D_80150130[1] + 40.0f;
@@ -2990,8 +2988,6 @@ void func_800790E4(s32 arg0) {
     func_800723A4(D_80183DB8[arg0], 6);
 }
 
-extern s32 D_8018C028;
-
 void func_80079114(s32 objectIndex, s32 arg1, s32 arg2) {
     s32 a;
     if (D_80165C18[objectIndex].unk_0A6 >= 2) {
@@ -3022,37 +3018,23 @@ void func_80079114(s32 objectIndex, s32 arg1, s32 arg2) {
 
 extern UnkStruct_80165CF5 D_80165CF0[];
 
-//#ifdef NON_MATCHING
-
-void func_800791F0(s32 objectIndex, u8 playerId) {
-    //Player *sp1C;
+void func_800791F0(s32 objectIndex, s32 playerId) {
     Player *player = &gPlayerOne[playerId];
-    //s16 var_v0;
-    //struct_80165C18_entry *temp_v0;
 
-    //temp_v0 = &D_80165CF0[objectIndex];
     if ((D_80165CF0[objectIndex].unk[0] != 3) && (D_80165CF0[objectIndex].unk[0] != 7)) {
-        //sp1C = temp_v1;
         func_800722CC(objectIndex, 1);
-        //var_v0 = gCurrentCourseId;
         if (gCurrentCourseId == COURSE_SHERBET_LAND) {
             player->unk_0CA &= 0xFFEF;
-            //goto block_5;
         }
     } else {
-//block_5:
-        //var_v0 = gCurrentCourseId;
+        // Code goes between curly brackets
     }
     if (gCurrentCourseId == COURSE_SHERBET_LAND) {
-        //temp_v1 = temp_v1;
         func_800722CC(objectIndex, 0x00000010);
         player->unk_0CA &= 0xFFDF;
     }
-    func_800C9018(playerId, 0x0100FA28);
+    func_800C9018((u8)playerId, 0x0100FA28);
 }
-//#else
-//GLOBAL_ASM("asm/non_matchings/code_80071F00/func_800791F0.s")
-//#endif
 
 extern s32 D_0F05EB50;
 extern s16 D_801656F0;
@@ -3157,7 +3139,6 @@ void func_80079380(s32 objectIndex, s32 arg1) {
 }
 
 extern s32 D_0F07E350;
-extern s32 D_8018C028;
 extern s32 D_800E6834; // static
 
 void func_8007963C(s32 objectIndex, s32 playerIndex) {
@@ -3284,17 +3265,17 @@ void func_80079B40(s32 objectIndex, s32 playerId) {
     Player *player = &gPlayerOne[playerId];
 
     switch (D_80165C18[objectIndex].unk_0A6) {                              /* switch 1; irregular */
-        case 0:                                         /* switch 1 */
+        case 0:
             break;
-        case 1:                                         /* switch 1 */
+        case 1:
             func_800799A8(objectIndex, playerId);
             break;
-        case 2:                                         /* switch 1 */
+        case 2:
             func_800721C0(objectIndex, 0x00000010);
             func_800736E0(objectIndex);
             func_80072488(objectIndex);
             break;
-        case 3:                                         /* switch 1 */
+        case 3:
             func_800730BC(objectIndex, 0, 3, 1, 2, -1);
             break;
     }
@@ -3340,18 +3321,18 @@ void func_80079D44(s32 objectIndex, s32 playerId) {
 
     temp_s1 = &gPlayerOne[playerId];
     switch (D_80165C18[objectIndex].unk_0A6) {                              /* switch 1; irregular */
-        case 0:                                         /* switch 1 */
+        case 0:
             break;
-        case 1:                                         /* switch 1 */
+        case 1:
             func_800799A8(objectIndex, playerId);
             break;
-        case 2:                                         /* switch 1 */
+        case 2:
             func_800721C0(objectIndex, 0x00000010);
             func_800736E0(objectIndex);
             temp_s1->unk_0CA |= 0x80;
             func_80072488(objectIndex);
             break;
-        case 3:                                         /* switch 1 */
+        case 3:
             func_800730BC(objectIndex, 0, 3, 1, 2, -1);
             break;
     }
@@ -3558,7 +3539,7 @@ void func_8007A4D4(s32 objectIndex, s32 playerId) {
             break;
     }
     switch (D_80165C18[objectIndex].unk_0D6) {                              /* switch 1; irregular */
-        case 1:                                         /* switch 1 */
+        case 1:
             if ((D_80165C18[objectIndex].unk_0A6 >= 3) && ((sp2C->unk_0BC << 9) >= 0)) {
                 func_80086F10(objectIndex, 6, &D_800E69F4);
                 D_80165C18[objectIndex].unk_0D6 = 2;
@@ -3567,7 +3548,7 @@ void func_8007A4D4(s32 objectIndex, s32 playerId) {
                 return;
             }
             return;
-        case 2:                                         /* switch 1 */
+        case 2:
             D_80165C18[objectIndex].unk_04C--;
             if (D_80165C18[objectIndex].unk_04C == 0) {
                 func_80072488(objectIndex);
@@ -3653,59 +3634,56 @@ void func_8007A948(s32 arg0) {
     }
 }
 
-#ifdef MIPS_TO_C
-//generated by m2c commit d9d3d6575355663122de59f6b2882d8f174e2355 on Dec-27-2022
-? func_80079114(s32, s32, ?);                       /* extern */
-extern ? D_80165CF0;
-extern ? D_80183FA8;
-extern void *D_8018C028;
-extern Camera *D_8018CF14;
-extern Player *D_8018CF1C;
-
-void func_8007AA44(s32 arg0) {
+// Some sort of buffer? It's likely a struct since below it's referenced as a size of 0xD
+extern s8 D_80183FA8[0x8000];
+/**
+ * @param arg0 accepts 0-3
+*/
+void func_8007AA44(s32 index) {
     s32 temp_s0;
-    u8 temp_t1;
 
-    func_8007A910(arg0);
-    temp_s0 = D_80183DB8[arg0];
-    temp_t1 = *(&D_80165CF0 + (temp_s0 * 0xE0));
-    D_8018C028 = (arg0 << 0xD) + &D_80183FA8;
-    switch (temp_t1) {
-    case 1:
-        func_80079114(temp_s0, arg0, 2);
-        func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
-        return;
-    case 2:
-        func_80079114(temp_s0, arg0, 0);
-        func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
-        return;
-    case 3:
-        func_80079114(temp_s0, arg0, 0);
-        func_8007A778(temp_s0, D_8018CF1C, D_8018CF14);
-        return;
-    case 4:
-        func_80079114(temp_s0, arg0, 0);
-        func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
-        return;
-    case 5:
-        func_80079114(temp_s0, arg0, 0);
-        func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
-        return;
-    case 6:
-        func_80079114(temp_s0, arg0, 0);
-        func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
-        return;
-    case 7:
-        func_80079114(temp_s0, arg0, 0);
-        func_8007A778(temp_s0, D_8018CF1C, D_8018CF14);
-        /* fallthrough */
-    default:
-        return;
-    }
+    func_8007A910(index);
+    temp_s0 = D_80183DB8[index];
+
+    // todo: proper size
+    D_8018C028 = &D_80183FA8[index << 0xD];
+    // Player Ids?
+    switch (D_80165CF0[temp_s0].unk[0]) {
+        case 0:
+            break;
+        case 1:
+            func_80079114(temp_s0, index, 2);
+            func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        case 2:
+            func_80079114(temp_s0, index, 0);
+            func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        case 3:
+            func_80079114(temp_s0, index, 0);
+            func_8007A778(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        case 4:
+            func_80079114(temp_s0, index, 0);
+            func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        case 5:
+            func_80079114(temp_s0, index, 0);
+            func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        case 6:
+            func_80079114(temp_s0, index, 0);
+            func_8007A66C(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        case 7:
+            func_80079114(temp_s0, index, 0);
+            func_8007A778(temp_s0, D_8018CF1C, D_8018CF14);
+            break;
+        }
 }
-#else
-GLOBAL_ASM("asm/non_matchings/code_80071F00/func_8007AA44.s")
-#endif
+//#else
+//GLOBAL_ASM("asm/non_matchings/code_80071F00/func_8007AA44.s")
+//#endif
 
 void func_8007ABFC(s32 playerId, s32 arg1) {
     s32 itemWindow;
@@ -4200,17 +4178,17 @@ void func_8007B34C(s32 playerId) {
         } else {
             temp_v0_3 = sp2C->unk_0D6;
             switch (temp_v0_3) {                    /* switch 1; irregular */
-            case 1:                                 /* switch 1 */
+            case 1:
                 if (sp40 != 0) {
                     func_80073600(temp_s0);
                     func_800726CC(temp_s0, 6);
                 }
                 break;
-            case 2:                                 /* switch 1 */
+            case 2:
                 func_800729D0(temp_s0, (s32) sp2C->unk_0A2);
                 sp2C->unk_0D6 = 3;
                 break;
-            case 3:                                 /* switch 1 */
+            case 3:
                 if (sp2C->unk_0A4 == 0) {
                     if (func_80072354(temp_s0, 1) != 0) {
                         temp_v0_4 = sp2C->unk_0A2;
@@ -4952,19 +4930,19 @@ void func_8007CEDC(s32 objectIndex) {
 
     temp_s0 = &D_80165C18[objectIndex];
     temp_v0 = temp_s0->unk_0A6;
-    switch (temp_v0) {                              /* switch 1 */
-    case 0:                                         /* switch 1 */
+    switch (temp_v0) {
+    case 0:
         break;
-    case 1:                                         /* switch 1 */
+    case 1:
         func_8007CE0C(objectIndex);
         break;
-    case 2:                                         /* switch 1 */
+    case 2:
         func_8007278C(objectIndex, 0x0000001E);
         break;
-    case 3:                                         /* switch 1 */
+    case 3:
         func_8007278C(objectIndex, 0x000003E8);
         break;
-    case 4:                                         /* switch 1 */
+    case 4:
         func_80072428(objectIndex);
         break;
     }
@@ -7305,13 +7283,13 @@ void func_80081AFC(s32 objectIndex, s32 arg1) {
             func_800721E8(objectIndex, 0x00000200);
             func_80072428(objectIndex);
             switch (arg1) {                         /* switch 1; irregular */
-            case 1:                                 /* switch 1 */
+            case 1:
                 sp2C = &D_8018D198;
                 break;
-            case 2:                                 /* switch 1 */
+            case 2:
                 sp2C = &D_8018D1A8;
                 break;
-            case 3:                                 /* switch 1 */
+            case 3:
                 sp2C = &D_8018D1B8;
                 break;
             }
@@ -8859,16 +8837,16 @@ void func_80084D2C(s32 objectIndex, s32 arg1) {
         break;
     case 3:
         switch (arg1) {                             /* switch 1; irregular */
-        case 0:                                     /* switch 1 */
+        case 0:
             sp24 = 1.0f;
             break;
-        case 1:                                     /* switch 1 */
+        case 1:
             sp24 = 1.5f;
             break;
-        case 2:                                     /* switch 1 */
+        case 2:
             sp24 = 2.0f;
             break;
-        case 3:                                     /* switch 1 */
+        case 3:
             sp24 = 2.5f;
             break;
         }
@@ -9686,18 +9664,18 @@ void func_80086700(s32 objectIndex) {
     if (gCCSelection < 2) {
         temp_v0 = D_802874F5;
         switch (temp_v0) {                          /* switch 1; irregular */
-        default:                                    /* switch 1 */
+        default:
             var_v0 = &D_80165C18[objectIndex];
             break;
-        case 0:                                     /* switch 1 */
+        case 0:
             var_v0 = &D_80165C18[objectIndex];
             var_v0->unk_070 = (s32) &D_0B0069D8;
             break;
-        case 1:                                     /* switch 1 */
+        case 1:
             var_v0 = &D_80165C18[objectIndex];
             var_v0->unk_070 = (s32) &D_0B006A78;
             break;
-        case 2:                                     /* switch 1 */
+        case 2:
             var_v0 = &D_80165C18[objectIndex];
             var_v0->unk_070 = (s32) &D_0B006B18;
             break;
@@ -9770,11 +9748,11 @@ void func_80086940(s32 objectIndex) {
         temp_s0->unk_028[1] = 60.0f;
         temp_v0 = D_802874F5;
         switch (temp_v0) {                          /* switch 1; irregular */
-        case 1:                                     /* switch 1 */
+        case 1:
             temp_s0->unk_010[0] = (f32) ((f64) temp_s0->unk_010[0] - 3.0);
             temp_s0->unk_010[2] = (f32) ((f64) temp_s0->unk_010[2] + 15.0);
             break;
-        case 2:                                     /* switch 1 */
+        case 2:
             temp_s0->unk_010[0] = (f32) ((f64) temp_s0->unk_010[0] - 2.0);
             temp_s0->unk_010[2] = (f32) ((f64) temp_s0->unk_010[2] - 15.0);
             break;

@@ -252,6 +252,8 @@ void func_80086D80();
 s32 osPiStartDma(OSIoMesg *mb, s32 priority, s32 direction, uintptr_t devAddr, void *vAddr, size_t nbytes, OSMesgQueue *mq);
 s32 osRecvMesg(OSMesgQueue*, OSMesg*, s32);
 
+extern uintptr_t *D_8018C028;
+
 extern s8 D_8018EDF3;
 
 extern OSMesgQueue gDmaMesgQueue;

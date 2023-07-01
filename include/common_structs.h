@@ -466,7 +466,7 @@ typedef struct {
     /* 0x20 */ u32 lap1Duration;
     /* 0x24 */ u32 lap2Duration;
     /* 0x28 */ u32 lap3Duration;
-    // Integer parts of the player's X/Y/X coordinates
+    // Integer parts of the player's X/Y/Z coordinates
     /* 0x2C */ s32 posXInt;
     /* 0x30 */ s32 posYInt;
     /* 0x34 */ s32 posZInt;
