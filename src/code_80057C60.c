@@ -5256,7 +5256,7 @@ void func_80064C74(Player* player, s16 arg1, UNUSED s8 arg2, UNUSED s8 arg3) {
     }
 }
 
-void func_80064DEC(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
+void func_80064DEC(Player* player, UNUSED s8 arg1, UNUSED s8 arg2, s8 arg3) {
 
     player->unk_258[20 + arg3].unk_000[1] = player->pos[1];
     ++player->unk_258[20 + arg3].unk_01E;
@@ -5274,7 +5274,7 @@ void func_80064DEC(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
     }
 }
 
-void func_80064EA4(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
+void func_80064EA4(Player* player, UNUSED s8 arg1, UNUSED s8 arg2, s8 arg3) {
     ++player->unk_258[20 + arg3].unk_01E;
     if (player->unk_258[20 + arg3].unk_01E < 4) {
         player->unk_258[20 + arg3].unk_00C += 1.2;
@@ -5292,7 +5292,7 @@ void func_80064EA4(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
     }
 }
 
-void func_80064F88(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
+void func_80064F88(Player* player, UNUSED s8 arg1, UNUSED s8 arg2, s8 arg3) {
     ++player->unk_258[20 + arg3].unk_01E;
     player->unk_258[20 + arg3].unk_00C += 0.15;
     
@@ -5307,7 +5307,7 @@ void func_80064F88(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
     }
 }
 
-void func_80065030(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
+void func_80065030(Player* player, UNUSED s8 arg1, UNUSED s8 arg2, s8 arg3) {
     ++player->unk_258[20 + arg3].unk_01E;
 
     player->unk_258[20 + arg3].unk_000[1] += 0.8;
@@ -5324,7 +5324,7 @@ void func_80065030(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
     }
 }
 
-void func_800650FC(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
+void func_800650FC(Player* player, UNUSED s8 arg1, UNUSED s8 arg2, s8 arg3) {
     player->unk_258[20 + arg3].unk_000[2] = (f32) player->pos[2];
     player->unk_258[20 + arg3].unk_000[0] = (f32) player->pos[0];
     player->unk_258[20 + arg3].unk_000[1] = (f32) (player->pos[1] + 4.0f);
@@ -5346,7 +5346,7 @@ void func_800650FC(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
     }
 }
 
-void func_800651F4(Player* player, UNUSED s16 arg1, UNUSED s8 arg2, s8 arg3) {
+void func_800651F4(Player* player, UNUSED s8 arg1, UNUSED s8 arg2, s8 arg3) {
     ++player->unk_258[20 + arg3].unk_01E;
     if (player->unk_258[20 + arg3].unk_01E < 8) {
         player->unk_258[20 + arg3].unk_00C += 0.2;
@@ -9672,58 +9672,50 @@ block_22:
 GLOBAL_ASM("asm/non_matchings/code_80057C60/func_8006CEC0.s")
 #endif
 
-#ifdef NON_MATCHING
-// So, a lot of the functions called by this function have their argument types
-// slightly wrong.
-// For example, func_80064DEC, arg1 is currently marked as an s16 but based on
-// this function it ought to be an s8
-void func_8006D194(Player *player, s8 arg1, s8 arg2) {
+void func_8006D194(Player *player, s8 playerIndex, s8 arg2) {
     if (player->unk_258[0x14].unk_01C == 1) {
         switch (player->unk_258[0x14].unk_012) {
         case 2:
-            func_80064DEC(player, arg1, arg2, 0);
+            func_80064DEC(player, playerIndex, arg2, 0);
             break;
         case 3:
-            func_800650FC(player, arg1, arg2, 0);
+            func_800650FC(player, playerIndex, arg2, 0);
             break;
         case 4:
-            func_80064EA4(player, arg1, arg2, 0);
+            func_80064EA4(player, playerIndex, arg2, 0);
             break;
         case 5:
-            func_80064F88(player, arg1, arg2, 0);
+            func_80064F88(player, playerIndex, arg2, 0);
             break;
         case 6:
-            func_80065030(player, arg1, arg2, 0);
+            func_80065030(player, playerIndex, arg2, 0);
             break;
         }
     } else {
         if ((player->unk_0B6 & 0x40) == 0x40) {
-            func_800628C0(player, arg1, arg2, 0);
+            func_800628C0(player, playerIndex, arg2, 0);
         }
         if ((player->unk_0B6 & 0x800) == 0x800) {
-            func_80062968(player, arg1, arg2, 0);
+            func_80062968(player, playerIndex, arg2, 0);
         }
         if ((player->unk_0B6 & 0x1000) == 0x1000) {
-            func_80062914(player, arg1, arg2, 0);
+            func_80062914(player, playerIndex, arg2, 0);
         }
         if ((player->unk_0B6 & 0x80) == 0x80) {
-            func_80062A18(player, arg1, arg2, 0);
+            func_80062A18(player, playerIndex, arg2, 0);
         }
         if ((player->unk_0B6 & 0x100) == 0x100) {
-            func_800629BC(player, arg1, arg2, 0);
+            func_800629BC(player, playerIndex, arg2, 0);
         }
     }
     if (player->unk_258[0x15].unk_01C == 1) {
         if (player->unk_258[0x15].unk_012 == 5) {
-            func_800651F4(player, arg1, arg2, 1);
+            func_800651F4(player, playerIndex, arg2, 1);
         }
     } else if ((player->unk_0B6 & 0x20) == 0x20) {
-        func_80062AA8(player, arg1, arg2, 1);
+        func_80062AA8(player, playerIndex, arg2, 1);
     }
 }
-#else
-GLOBAL_ASM("asm/non_matchings/code_80057C60/func_8006D194.s")
-#endif
 
 #ifdef MIPS_TO_C
 //generated by m2c commit b7eac665cffd02361f73cec283ef16d0a35a0e5b
@@ -9907,48 +9899,48 @@ void func_8006DC54(Player* player, s8 arg1, s8 arg2) {
     }
 }
 
-void func_8006DD3C(Player* arg0, s8 arg1, s8 arg2) {
+void func_8006DD3C(Player* player, s8 arg1, s8 arg2) {
     s16 temp_s0;
     s32 temp_v0;
 
     temp_v0 = 8 << (arg2 * 4);
-    if (temp_v0 == (arg0->unk_002 & temp_v0)) {
+    if (temp_v0 == (player->unk_002 & temp_v0)) {
         for (temp_s0 = 0; temp_s0 < 10; ++temp_s0) {
-            temp_v0 = arg0->unk_258[temp_s0].unk_012;
+            temp_v0 = player->unk_258[temp_s0].unk_012;
             if (temp_v0 != 3) {
                 if (temp_v0 == 5) {
-                    func_8006A280(arg0, arg1, temp_s0, arg2);
+                    func_8006A280(player, arg1, temp_s0, arg2);
                 }
             } else if (gActiveScreenMode == SCREEN_MODE_3P_4P_SPLITSCREEN) {
                 if (arg2 == arg1) {
-                    func_80066998(arg0, arg1, temp_s0, arg2);
+                    func_80066998(player, arg1, temp_s0, arg2);
                 }
             } else {
-                func_80066998(arg0, arg1, temp_s0, arg2);
+                func_80066998(player, arg1, temp_s0, arg2);
             }
         }
 
-        if (((arg0->unk_000 & 0x4000) == 0x4000) && (arg2 == arg1)) {
-            switch (arg0->unk_258[20].unk_012) {
+        if (((player->unk_000 & PLAYER_HUMAN) == PLAYER_HUMAN) && (arg2 == arg1)) {
+            switch (player->unk_258[20].unk_012) {
             case 2:
-                func_80068310(arg0, arg1, arg0->unk_258[20].unk_00C, arg2, 0);
+                func_80068310(player, arg1, player->unk_258[20].unk_00C, arg2, 0);
                 break;
             case 3:
-                func_80067964(arg0, arg1, arg0->unk_258[20].unk_00C, arg2, 0);
+                func_80067964(player, arg1, player->unk_258[20].unk_00C, arg2, 0);
                 break;
             case 4:
-                func_80068724(arg0, arg1, arg0->unk_258[20].unk_00C, arg2, 0);
+                func_80068724(player, arg1, player->unk_258[20].unk_00C, arg2, 0);
                 break;
             case 5:
-                func_80068AA4(arg0, arg1, arg0->unk_258[20].unk_00C, arg2, 0);
+                func_80068AA4(player, arg1, player->unk_258[20].unk_00C, arg2, 0);
                 break;
             case 6:
-                func_80068DA0(arg0, arg1, arg0->unk_258[20].unk_00C, arg2, 0);
+                func_80068DA0(player, arg1, player->unk_258[20].unk_00C, arg2, 0);
                 break;
             }
-            if (arg0->unk_258[21].unk_012 == 5) {
-                func_80067D3C(arg0, arg2, D_8018D480, 1, 1.6f, 0xFFFFFF);
-                func_8006801C(arg0, arg2, D_8018D484, 1, 1.6f, 0xFF);
+            if (player->unk_258[21].unk_012 == 5) {
+                func_80067D3C(player, arg2, D_8018D480, 1, 1.6f, 0xFFFFFF);
+                func_8006801C(player, arg2, D_8018D484, 1, 1.6f, 0xFF);
             }
         }
     }
@@ -9972,11 +9964,11 @@ void func_8006E058(void) {
         case TIME_TRIALS:
             func_8006E420(gPlayerOne, 0, 0);
 
-            if ((gPlayerTwo->unk_000 & 0x100) == 0x100) {
+            if ((gPlayerTwo->unk_000 & PLAYER_INVISIBLE_OR_BOMB) == PLAYER_INVISIBLE_OR_BOMB) {
                 func_8006E420(gPlayerTwo, 1, 0);
             }
            
-            if ((gPlayerThree->unk_000 & 0x100) == 0x100) {
+            if ((gPlayerThree->unk_000 & PLAYER_INVISIBLE_OR_BOMB) == PLAYER_INVISIBLE_OR_BOMB) {
                 func_8006E420(gPlayerThree, 2, 0);
                 break;
             }
@@ -9987,15 +9979,13 @@ void func_8006E058(void) {
             func_8006E420(gPlayerOne, 0, 0);
             func_8006E420(gPlayerTwo, 1, 0);
        
-            if (gPlayerCountSelection1 >= 3) {
+            if (gPlayerCountSelection1 >= THREE_PLAYERS_SELECTED) {
                 func_8006E420(gPlayerThree, 2, 0);
             }
 
-            if (gPlayerCountSelection1 == 4) {
+            if (gPlayerCountSelection1 == FOUR_PLAYERS_SELECTED) {
                 func_8006E420(gPlayerFour, 3, 0);
-                break;
             }
-
             break;
         }
 
@@ -10047,31 +10037,31 @@ void func_8006E058(void) {
     }
 }
 
-void func_8006E420(Player* player, s8 arg1, s8 arg2) {
+void func_8006E420(Player* player, s8 playerIndex, s8 arg2) {
     s16 temp_s0;
 
-    if ((player->unk_000 & 0x8000) == 0x8000) {
-        if ((player->unk_000 & 0x4000) == 0x4000) {
-            func_8006D194(player, arg1, arg2);
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
+        if ((player->unk_000 & PLAYER_HUMAN) == PLAYER_HUMAN) {
+            func_8006D194(player, playerIndex, arg2);
         }
    
         for (temp_s0 = 0; temp_s0 < 10; ++temp_s0)
         {
-            func_8006CEC0(player, temp_s0, arg1, arg2);
-            if (((player->unk_000 & 0x4000) == 0x4000) || (gGamestate == ENDING_SEQUENCE)) {
-                func_8006C9B8(player, temp_s0, arg1, arg2);
+            func_8006CEC0(player, temp_s0, playerIndex, arg2);
+            if (((player->unk_000 & PLAYER_HUMAN) == PLAYER_HUMAN) || (gGamestate == ENDING_SEQUENCE)) {
+                func_8006C9B8(player, temp_s0, playerIndex, arg2);
             }
-            func_8006C6AC(player, temp_s0, arg1, arg2);
+            func_8006C6AC(player, temp_s0, playerIndex, arg2);
         }
 
         if (gModeSelection == BATTLE) {
-            func_8006B9CC(player, arg1);
+            func_8006B9CC(player, playerIndex);
         }
     }
 }
 
 void func_8006E5AC(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006D474(player, arg1, arg2);
@@ -10084,7 +10074,7 @@ void func_8006E5AC(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E634(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006D474(player, arg1, arg2);
@@ -10097,7 +10087,7 @@ void func_8006E634(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E6BC(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006D474(player, arg1, arg2);
@@ -10110,7 +10100,7 @@ void func_8006E6BC(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E744(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006D474(player, arg1, arg2);
@@ -10123,7 +10113,7 @@ void func_8006E744(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E7CC(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006DD3C(player, arg1, arg2);
@@ -10135,7 +10125,7 @@ void func_8006E7CC(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E848(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006DD3C(player, arg1, arg2);
@@ -10147,7 +10137,7 @@ void func_8006E848(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E8C4(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006DD3C(player, arg1, arg2);
@@ -10159,7 +10149,7 @@ void func_8006E8C4(Player* player, s8 arg1, s8 arg2) {
 }
 
 void func_8006E940(Player* player, s8 arg1, s8 arg2) {
-    if ((player->unk_000 & 0x8000) == 0x8000) {
+    if ((player->unk_000 & PLAYER_EXISTS) == PLAYER_EXISTS) {
         if ((player->unk_0BC & 0x80000000) == 0x80000000) {
             if (arg1 == arg2) {
                 func_8006DD3C(player, arg1, arg2);

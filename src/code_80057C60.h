@@ -148,13 +148,13 @@ void func_80064988(Player*, s16, s8, s8);
 void func_800649F4(Player*, s16, s8, s8);
 void func_80064B30(Player*, s16, s8, s8);
 void func_80064C74(Player*, s16, s8, s8);
-void func_80064DEC(Player*, s16, s8, s8);
-void func_80064EA4(Player*, s16, s8, s8);
-void func_80064F88(Player*, s16, s8, s8);
+void func_80064DEC(Player*, s8, s8, s8);
+void func_80064EA4(Player*, s8, s8, s8);
+void func_80064F88(Player*, s8, s8, s8);
 
-void func_80065030(Player*, s16, s8, s8);
-void func_800650FC(Player*, s16, s8, s8);
-void func_800651F4(Player*, s16, s8, s8);
+void func_80065030(Player*, s8, s8, s8);
+void func_800650FC(Player*, s8, s8, s8);
+void func_800651F4(Player*, s8, s8, s8);
 void func_800652D4(Vec3f, Vec3s, f32);
 void func_800658A0(Player*, s8, s16, s8);
 
