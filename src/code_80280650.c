@@ -470,7 +470,7 @@ void func_80281540(void) {
 }
 
 void ending_sequence_loop(void) {
-    D_80150112 = 0;
+    matrixCount = 0;
     D_802874FC = 0;
     setup_camera_ending_sequence();
     func_80028F70();

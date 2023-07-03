@@ -106,7 +106,7 @@ u8 gControllerBits;
 
 struct UnkStruct_8015F584 D_8014F110[1024];
 u16 gNumActors;
-u16 D_80150112;
+u16 matrixCount;
 s32 gTickSpeed;
 f32 D_80150118;
 u16 wasSoftReset;
@@ -536,7 +536,7 @@ void race_logic_loop(void) {
     s16 i;
     u16 rotY;
 
-    D_80150112 = 0;
+    matrixCount = 0;
     D_80164AF0 = 0;
     if (D_800DC5FC != 0) {
         func_80290B14();

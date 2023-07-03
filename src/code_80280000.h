@@ -16,7 +16,7 @@ extern Gfx *gDisplayListHead;
 extern f32 D_80150148, D_8015014C, D_80150150;
 extern f32 D_80150130[4];
 extern s16 gCreditsCourseId;
-extern u16 D_80150112;
+extern u16 matrixCount;
 extern s16 D_80164AF0;
 
 extern u16 gIsInQuitToMenuTransition, gQuitToMenuTransitionCounter;

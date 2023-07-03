@@ -18,7 +18,7 @@ void func_802977B0(Player*);
 void func_802977E4(Player*);
 void func_80297818();
 void func_80297944();
-void func_8029794C(Vec3f, Vec3s, f32);
+void spawn_actor_shadow(Vec3f, Vec3s, f32);
 void func_802979F8(struct Actor*, f32);
 void func_80297A50(Camera*, Mat4, struct Actor*);
 void update_obj_yoshi_valley_egg(struct YoshiValleyEgg*);
@@ -148,7 +148,7 @@ extern f32 D_80150130[];
 extern u16 D_801637B8[];
 extern Lights1 D_800DC610[];
 
-extern u16 D_80150112;
+extern u16 matrixCount;
 extern u16 D_8015F700;
 extern u16 D_8015F702;
 extern f32 D_8015F704;

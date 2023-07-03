@@ -35,7 +35,7 @@ void func_80280038(void) {
     UNUSED s32 pad;
     Mat4 matrix;
 
-    D_80150112 = 0;
+    matrixCount = 0;
     D_80164AF0 = 0;
     D_8018D120 = 0;
     init_rdp();

@@ -108,7 +108,7 @@ extern u16  D_800DC51C;
 extern s32  D_800DC540;
 extern u16  D_800DC5FC;
 
-extern u16  D_80150112;
+extern u16  matrixCount;
 
 extern u16  D_8015F890;
 
