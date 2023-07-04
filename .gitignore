@@ -43,6 +43,8 @@
 __pycache__/*
 doxygen/doxygen/*
 /build/*
+/html/*
+/latex/*
 # decomp permuter
 /nonmatchings/*
 *.dump

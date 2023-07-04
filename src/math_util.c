@@ -38,26 +38,26 @@ UNUSED void func_802B4FF0() {
 }
 
 s32 func_802B4FF8(Mat4 arg0, s32 arg1) {
-    if (D_80150112 >= 0x80) {
+    if (matrixCount >= 128) {
         return 0;
     }
-    func_802B75F8(&gGfxPool->mtxPool[D_80150112 + 0x32B], arg0);
+    func_802B75F8(&gGfxPool->mtxPool[matrixCount + 0x32B], arg0);
     switch (arg1) {                                 /* irregular */
         case 0:
-            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[D_80150112 + 0x32B]), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
-            D_80150112 += 1;
+            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[matrixCount + 0x32B]), G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+            matrixCount += 1;
             break;
         case 1:
-            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[D_80150112 + 0x32B]), G_MTX_PUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
-            D_80150112 += 1;
+            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[matrixCount + 0x32B]), G_MTX_PUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+            matrixCount += 1;
             break;
         case 3:
-            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[D_80150112 + 0x32B]), G_MTX_PUSH | G_MTX_MUL | G_MTX_MODELVIEW);
-            D_80150112 += 1;
+            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[matrixCount + 0x32B]), G_MTX_PUSH | G_MTX_MUL | G_MTX_MODELVIEW);
+            matrixCount += 1;
             break;
         case 2:
-            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[D_80150112 + 0x32B]), G_MTX_NOPUSH | G_MTX_MUL | G_MTX_MODELVIEW);
-            D_80150112 += 1;
+            gSPMatrix(gDisplayListHead++, VIRTUAL_TO_PHYSICAL(&gGfxPool->mtxPool[matrixCount + 0x32B]), G_MTX_NOPUSH | G_MTX_MUL | G_MTX_MODELVIEW);
+            matrixCount += 1;
             break;
     }
     return 1;
@@ -467,19 +467,19 @@ loop_4:
 GLOBAL_ASM("asm/non_matchings/math_util/func_802B5D64.s")
 #endif
 
-void func_802B5F00(Mat4 arg0, f32 arg1) {
-    arg0[0][0] *= arg1;
-    arg0[1][0] *= arg1;
-    arg0[2][0] *= arg1;
-    arg0[0][1] *= arg1;
-    arg0[1][1] *= arg1;
-    arg0[2][1] *= arg1;
-    arg0[0][2] *= arg1;
-    arg0[1][2] *= arg1;
-    arg0[2][2] *= arg1;
+void scale_matrix(Mat4 matrix, f32 scalar) {
+    matrix[0][0] *= scalar;
+    matrix[1][0] *= scalar;
+    matrix[2][0] *= scalar;
+    matrix[0][1] *= scalar;
+    matrix[1][1] *= scalar;
+    matrix[2][1] *= scalar;
+    matrix[0][2] *= scalar;
+    matrix[1][2] *= scalar;
+    matrix[2][2] *= scalar;
 }
 
-void func_802B5F74(Mat4 arg0, Vec3f arg1, Vec3s arg2) {
+void set_matrix(Mat4 arg0, Vec3f arg1, Vec3s arg2) {
     f32 sine1;
     f32 cosine1;
     f32 sine2;

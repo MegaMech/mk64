@@ -395,13 +395,14 @@ void func_80297818(void) {
 
 UNUSED void func_80297944(void) {};
 
-void func_8029794C(Vec3f arg0, Vec3s arg1, f32 arg2) {
-    Mat4 sp20;
+// Note that this func name likely needs to be more specific.
+void spawn_actor_shadow(Vec3f arg0, Vec3s arg1, f32 shadowSize) {
+    Mat4 matrix;
     arg0[1] += 2.0f;
 
-    func_802B5F74(sp20, arg0, arg1);
-    func_802B5F00(sp20, arg2);
-    if (func_802B4FF8(sp20, 0) != 0) {
+    set_matrix(matrix, arg0, arg1);
+    scale_matrix(matrix, shadowSize);
+    if (func_802B4FF8(matrix, 0) != 0) {
 
         gSPDisplayList(gDisplayListHead++, D_0D007B20);
         arg0[1] -= 2.0f;
@@ -416,7 +417,7 @@ void func_802979F8(struct Actor *arg0, f32 arg1) {
 
         func_802976EC(&arg0->unk30, sp1C); // arg0 + 0x30
         func_80297760(arg0, sp24);
-        func_8029794C(sp24, sp1C, 0.45f);
+        spawn_actor_shadow(sp24, sp1C, 0.45f);
     }
 }
 
@@ -761,7 +762,7 @@ void func_802986B4(Camera *camera, Mat4 arg1, struct Actor *actor) {
             arg1[3][0] = sp88[0];
             arg1[3][1] = sp88[1];
             arg1[3][2] = sp88[2];
-            if ((D_80150112 < 0x80) && (func_802B4FF8(arg1, 0) != 0)) {
+            if ((matrixCount < 0x80) && (func_802B4FF8(arg1, 0) != 0)) {
                 switch (var_s1->someId) {
                 case 0:
                     gSPDisplayList(gDisplayListHead++, D_06013C00);
@@ -898,15 +899,15 @@ void func_80298D7C(Camera *camera, Mat4 arg1, struct Actor *actor) {
         test &= 0xF;
         test = (s16)test;
         if (test == 6) {
-            func_802B5F74(sp90, spD4, sp88);
-            if (!(D_80150112 < 0x80)) { break; }
+            set_matrix(sp90, spD4, sp88);
+            if (matrixCount >= 128) { break; }
             func_802B4FF8(sp90, 0);
             goto dummylabel;
         } else {
             arg1[3][0] = spD4[0];
             arg1[3][1] = spD4[1];
             arg1[3][2] = spD4[2];
-            if (D_80150112 < 0x80) {
+            if (matrixCount < 128) {
                 func_802B4FF8(arg1, 0);
 dummylabel:
                 gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
@@ -941,7 +942,7 @@ void func_80299144(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 3.0f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 3.0f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -964,7 +965,7 @@ void func_8029930C(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 2.79999995f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 2.79999995f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -987,7 +988,7 @@ void func_802994D4(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 2.79999995f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 2.79999995f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1010,7 +1011,7 @@ void func_8029969C(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 600.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 5.0f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 5.0f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1033,7 +1034,7 @@ void func_80299864(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 2.79999995f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 2.79999995f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1056,7 +1057,7 @@ void func_80299A2C(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 2.79999995f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 2.79999995f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1079,7 +1080,7 @@ void func_80299BF4(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 2.79999995f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 2.79999995f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1102,7 +1103,7 @@ void func_80299DBC(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 2.79999995f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 2.79999995f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1124,7 +1125,7 @@ void func_80299EDC(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 40000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 1.0f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 1.0f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1146,7 +1147,7 @@ void func_80299FFC(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 40000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 1.0f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 1.0f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1168,7 +1169,7 @@ void func_8029A11C(Camera *camera, Mat4 arg1, struct Actor *arg2) {
     if (temp_f0 < 0.0f) { return; }
 
     if (((temp_v0 & 0x400) == 0) && (temp_f0 < 40000.0f)) {
-        func_8029794C(arg2->pos, arg2->rot, 0.80000001f);
+        spawn_actor_shadow(arg2->pos, arg2->rot, 0.80000001f);
     }
     arg1[3][0] = arg2->pos[0];
     arg1[3][1] = arg2->pos[1];
@@ -1293,12 +1294,12 @@ void func_8029A8F4(Camera *arg0, Mat4 arg1, struct BananaActor *arg2) {
     func_802972B8(arg0, arg2);
 
     if (arg2->state == 5) {
-        func_802B5F74(sp3C, arg2->pos, arg2->rot);
+        set_matrix(sp3C, arg2->pos, arg2->rot);
     } else {
         sp7C[0] = 0;
         sp7C[1] = 0;
         sp7C[2] = 0;
-        func_802B5F74(sp3C, arg2->pos, sp7C);
+        set_matrix(sp3C, arg2->pos, sp7C);
     }
 
     if (func_802B4FF8(sp3C, 0) == 0) { return; }
@@ -1412,7 +1413,7 @@ void func_8029AE1C(Camera *arg0, struct PaddleWheelBoat *boat, Mat4 arg2, u16 ar
         gSPSetLights1(gDisplayListHead++, D_800DC610[1]);
         gSPSetGeometryMode(gDisplayListHead++, G_SHADE | G_LIGHTING | G_SHADING_SMOOTH);
 
-        func_802B5F74(spE0, boat->pos, boat->boatRot);
+        set_matrix(spE0, boat->pos, boat->boatRot);
         if (func_802B4FF8(spE0, 1) != 0) {
 
             gSPDisplayList(gDisplayListHead++, &D_0600E730);
@@ -1441,7 +1442,7 @@ void func_8029B06C(Camera *arg0, struct Actor *arg1) {
         gSPTexture(gDisplayListHead++, 0xFFFF, 0xFFFF, 0, G_TX_RENDERTILE, G_ON);
         gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
-        func_802B5F74(spD8, arg1->pos, arg1->rot);
+        set_matrix(spD8, arg1->pos, arg1->rot);
         if (func_802B4FF8(spD8, 0) != 0) {
 
             switch(arg1->state) {
@@ -1485,7 +1486,7 @@ void func_8029B2E4(Camera *arg0, struct Actor *arg1) {
         gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
 
-        func_802B5F74(spC8, arg1->pos, arg1->rot);
+        set_matrix(spC8, arg1->pos, arg1->rot);
         if (func_802B4FF8(spC8, 0) != 0) {
 
             if (gActiveScreenMode == SCREEN_MODE_1P) {
@@ -1516,8 +1517,8 @@ void func_8029B4E0(Camera *arg0, struct Actor *arg1) {
         gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
 
-        func_802B5F74(spC8, arg1->pos, arg1->rot);
-        func_802B5F00(spC8, 0.1f);
+        set_matrix(spC8, arg1->pos, arg1->rot);
+        scale_matrix(spC8, 0.1f);
         if (func_802B4FF8(spC8, 0) != 0) {
 
             if (gActiveScreenMode == SCREEN_MODE_1P) {
@@ -1548,7 +1549,7 @@ void func_8029B6EC(Camera *camera, struct Actor* arg1) {
         gSPTexture(gDisplayListHead++, 0xFFFF, 0xFFFF, 0, G_TX_RENDERTILE, G_ON);
         gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
-        func_802B5F74(spC8, arg1->pos, arg1->rot);
+        set_matrix(spC8, arg1->pos, arg1->rot);
         if (func_802B4FF8(spC8, 0) != 0) {
 
             if (gActiveScreenMode == SCREEN_MODE_1P) {
@@ -1583,7 +1584,7 @@ void func_8029B8E8(Camera *camera, struct TrainCar *actor) {
 
     gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
-    func_802B5F74(sp120, actor->pos, actor->rot);
+    set_matrix(sp120, actor->pos, actor->rot);
     if (func_802B4FF8(sp120, 0) == 0) { return; }
 
     if (temp_f0 < 122500.0f) {
@@ -1698,7 +1699,7 @@ void func_8029BFB0(Camera *camera, struct TrainCar *actor) {
 
     gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
-    func_802B5F74(sp120, actor->pos, actor->rot);
+    set_matrix(sp120, actor->pos, actor->rot);
     if (func_802B4FF8(sp120, 0) == 0) { return; }
 
     if (temp_f0 < 250000.0f) {
@@ -1768,7 +1769,7 @@ void func_8029C3CC(Camera *camera, struct TrainCar *actor) {
 
     gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
-    func_802B5F74(sp120, actor->pos, actor->rot);
+    set_matrix(sp120, actor->pos, actor->rot);
     if (func_802B4FF8(sp120, 0) == 0) { return; }
 
     if (temp_f0 < 250000.0f) {
@@ -1894,14 +1895,14 @@ void func_8029CA90(Camera *camera, struct FallingRock *rock) {
             sp98[1] = 0;
             sp98[2] = 0;
             sp8C[1] = temp_f0 + 2.0f;
-            func_802B5F74(sp4C, sp8C, sp98);
+            set_matrix(sp4C, sp8C, sp98);
             if (func_802B4FF8(sp4C, 0) == 0) {
                 return;
             }
             gSPDisplayList(gDisplayListHead++, D_06006F88);
         }
     }
-    func_802B5F74(sp4C, rock->pos, rock->rot);
+    set_matrix(sp4C, rock->pos, rock->rot);
     if (func_802B4FF8(sp4C, 0) == 0) {
         return;
     }
@@ -3694,15 +3695,15 @@ void func_802A171C(Camera *camera, struct FakeItemBox *fakeItemBox) {
     someRot[0] = 0;
     someRot[1] = fakeItemBox->rot[1];
     someRot[2] = 0;
-    func_802B5F74(someMatrix2, fakeItemBox->pos, someRot);
-    func_802B5F00(someMatrix2, fakeItemBox->sizeScaling);
+    set_matrix(someMatrix2, fakeItemBox->pos, someRot);
+    scale_matrix(someMatrix2, fakeItemBox->sizeScaling);
     if (fakeItemBox->state != 2) {
 
         if (!func_802B4FF8(someMatrix2, 0)) { return; }
 
         gSPDisplayList(gDisplayListHead++, D_0D002F80);
-        func_802B5F74(someMatrix2, fakeItemBox->pos, fakeItemBox->rot);
-        func_802B5F00(someMatrix2, fakeItemBox->sizeScaling);
+        set_matrix(someMatrix2, fakeItemBox->pos, fakeItemBox->rot);
+        scale_matrix(someMatrix2, fakeItemBox->sizeScaling);
 
         if (!func_802B4FF8(someMatrix2, 0)) { return; }
 
@@ -3726,13 +3727,13 @@ void func_802A171C(Camera *camera, struct FakeItemBox *fakeItemBox) {
         gSPClearGeometryMode(gDisplayListHead++, G_CULL_BACK);
         gDPNoOp(gDisplayListHead++);
         thing = fakeItemBox->someTimer;
-        func_802B5F74(someMatrix2, fakeItemBox->pos, fakeItemBox->rot);
+        set_matrix(someMatrix2, fakeItemBox->pos, fakeItemBox->rot);
         if (thing < 10.0f) {
             someMultiplier = 1.0f;
         } else {
             someMultiplier = 1.0f - ((thing - 10.0f) * 0.1f);
         }
-        func_802B5F00(someMatrix2, someMultiplier);
+        scale_matrix(someMatrix2, someMultiplier);
         if (fakeItemBox->someTimer & 1) {
             gDPSetRenderMode(gDisplayListHead++, G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2);
         } else {
@@ -3831,28 +3832,28 @@ void func_802A1EA0(Camera *camera, struct ItemBox *item_box) {
             someVec2[0] = item_box->pos[0];
             someVec2[1] = item_box->resetDistance + 2.0f;
             someVec2[2] = item_box->pos[2];
-            func_802B5F74(someMatrix1, someVec2, someRot);
+            set_matrix(someMatrix1, someVec2, someRot);
 
             if (!func_802B4FF8(someMatrix1, 0)) { return; }
 
             gSPDisplayList(gDisplayListHead++, D_0D002EE8);
             someRot[1] = item_box->rot[1] * 2;
             someVec2[1] = item_box->pos[1];
-            func_802B5F74(someMatrix1, someVec2, someRot);
+            set_matrix(someMatrix1, someVec2, someRot);
 
             if (!func_802B4FF8(someMatrix1, 0)) { return; }
 
             gSPDisplayList(gDisplayListHead++, D_0D003008);
         }
         if (item_box->state == 5) {
-            func_802B5F74(someMatrix1, item_box->pos, item_box->rot);
+            set_matrix(someMatrix1, item_box->pos, item_box->rot);
 
             if (!func_802B4FF8(someMatrix1, 0)) { return; }
 
             gSPDisplayList(gDisplayListHead++, D_0D003008);
         }
         if (item_box->state != 3) {
-            func_802B5F74(someMatrix1, item_box->pos, item_box->rot);
+            set_matrix(someMatrix1, item_box->pos, item_box->rot);
 
             if (!func_802B4FF8(someMatrix1, 0)) { return; }
 
@@ -3877,13 +3878,13 @@ void func_802A1EA0(Camera *camera, struct ItemBox *item_box) {
             gSPClearGeometryMode(gDisplayListHead++, G_CULL_BACK);
             gDPNoOp(gDisplayListHead++);
             thing = item_box->someTimer;
-            func_802B5F74(someMatrix1, item_box->pos, item_box->rot);
+            set_matrix(someMatrix1, item_box->pos, item_box->rot);
             if (thing < 10.0f) {
                 someMultiplier = 1.0f;
             } else {
                 someMultiplier = 1.0f - ((thing - 10.0f) * 0.1f);
             }
-            func_802B5F00(someMatrix1, someMultiplier);
+            scale_matrix(someMatrix1, someMultiplier);
             if (item_box->someTimer & 1) {
                 gDPSetRenderMode(gDisplayListHead++, G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2);
             } else {
@@ -3961,7 +3962,7 @@ void func_802A269C(Camera *arg0, struct Actor *arg1) {
         gSPSetGeometryMode(gDisplayListHead++, G_SHADING_SMOOTH);
         gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
 
-        func_802B5F74(sp38, arg1->pos, arg1->rot);
+        set_matrix(sp38, arg1->pos, arg1->rot);
         if (func_802B4FF8(sp38, 0) != 0) {
 
             gSPDisplayList(gDisplayListHead++, D_0600CA60);
@@ -3992,12 +3993,12 @@ void func_802A27A0(Camera *arg0, Mat4 arg1, struct YoshiValleyEgg *egg, u16 arg3
             sp54[1] = 3.0f;
             sp54[2] = egg->pos[2];
             func_802976D8(sp5C);
-            func_8029794C(sp54, sp5C, 10.0f);
+            spawn_actor_shadow(sp54, sp5C, 10.0f);
         }
         sp5C[0] = 0;
         sp5C[1] = egg->eggRot;
         sp5C[2] = 0;
-        func_802B5F74(sp60, egg->pos, sp5C);
+        set_matrix(sp60, egg->pos, sp5C);
         if (func_802B4FF8(sp60, 0) == 0) { return; }
 
             gSPSetGeometryMode(gDisplayListHead++, G_LIGHTING);
@@ -4024,7 +4025,7 @@ void func_802A29BC(Camera *arg0, Mat4 arg1, struct Actor *arg2) {
         if (!(unk < 0.0f)) {
             gSPSetGeometryMode(gDisplayListHead++, G_SHADING_SMOOTH);
             gSPClearGeometryMode(gDisplayListHead++, G_LIGHTING);
-            func_802B5F74(&sp40, arg2->pos, arg2->rot);
+            set_matrix(&sp40, arg2->pos, arg2->rot);
             if (func_802B4FF8(&sp40, 0) != 0) {
                 gSPDisplayList(gDisplayListHead++, D_06009330);
             }
@@ -4037,7 +4038,7 @@ void func_802A2AD0(Camera *arg0, struct RailroadCrossing *rr_crossing) {
     f32 unk = func_802B80D0(arg0->pos, rr_crossing->pos, arg0->rot[1], 0.0f, D_80150130[arg0 - camera1], 4000000.0f);
 
     if (!(unk < 0.0f)) {
-        func_802B5F74(sp40, rr_crossing->pos, rr_crossing->rot);
+        set_matrix(sp40, rr_crossing->pos, rr_crossing->rot);
 
         if (func_802B4FF8(sp40, 0) != 0) {
             gSPSetGeometryMode(gDisplayListHead++, G_LIGHTING);
@@ -4072,9 +4073,9 @@ void func_802A2C78(Camera *arg0, Mat4 arg1, struct Actor *arg2) {
 
     if (!(temp_f0 < 0.0f)) {
         if (((temp_v0 & 0x400) == 0) && (temp_f0 < 250000.0f)) {
-            func_8029794C(arg2->pos, arg2->rot, 2.0f);
+            spawn_actor_shadow(arg2->pos, arg2->rot, 2.0f);
         }
-        func_802B5F74(sp68, arg2->pos, spA8);
+        set_matrix(sp68, arg2->pos, spA8);
         if (func_802B4FF8(sp68, 0) != 0) {
 
             gDPSetTextureLUT(gDisplayListHead++, G_TT_NONE);
