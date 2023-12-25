@@ -36,7 +36,7 @@
 <!-- Node7 -->
 <g id="node7" class="node">
 <title>Node7</title>
-<g id="a_node7"><a xlink:href="hud__renderer_8h.html#abeb55912d8bd0a329e96328531624e81" target="_top" xlink:title=" ">
+<g id="a_node7"><a xlink:href="hud__renderer_8c.html#ace17844cb3a8e3b2060b310b923b38ee" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="132.5,-76.5 132.5,-95.5 223.5,-95.5 223.5,-76.5 132.5,-76.5"/>
 <text text-anchor="middle" x="178" y="-83.5" font-family="Helvetica,sans-Serif" font-size="10.00">func_80044924</text>
 </a>
@@ -81,7 +81,7 @@
 <!-- Node3 -->
 <g id="node3" class="node">
 <title>Node3</title>
-<g id="a_node3"><a xlink:href="code__8001F980_8c.html#af0bbe78d8dc64400663d3702812f9ad8" target="_top" xlink:title=" ">
+<g id="a_node3"><a xlink:href="render__player_8c.html#af0bbe78d8dc64400663d3702812f9ad8" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="263,-133 263,-163 390,-163 390,-133 263,-133"/>
 <text text-anchor="start" x="271" y="-151" font-family="Helvetica,sans-Serif" font-size="10.00">convert_to_fixed_point</text>
 <text text-anchor="middle" x="326.5" y="-140" font-family="Helvetica,sans-Serif" font-size="10.00">_matrix</text>

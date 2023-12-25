@@ -48,7 +48,7 @@ if (edges && edges.length) {
 <script type="text/javascript">
 var viewWidth = 553;
 var viewHeight = 107;
-var sectionId = 'dynsection-315';
+var sectionId = 'dynsection-333';
 </script>
 <script xlink:href="svgpan.js"/>
 <svg id="graph" class="graph">
@@ -67,7 +67,7 @@ var sectionId = 'dynsection-315';
 <!-- Node2 -->
 <g id="node2" class="node">
 <title>Node2</title>
-<g id="a_node2"><a xlink:href="hud__renderer_8h.html#a5f8f08c93fb98a95f09d3b0c7ecb4f29" target="_top" xlink:title=" ">
+<g id="a_node2"><a xlink:href="hud__renderer_8c.html#a81be2b87d808633d8fe563c777fe1b0c" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="157,-79.5 157,-98.5 248,-98.5 248,-79.5 157,-79.5"/>
 <text text-anchor="middle" x="202.5" y="-86.5" font-family="Helvetica,sans-Serif" font-size="10.00">func_80044F34</text>
 </a>
@@ -97,7 +97,7 @@ var sectionId = 'dynsection-315';
 <!-- Node4 -->
 <g id="node4" class="node">
 <title>Node4</title>
-<g id="a_node4"><a xlink:href="code__8001F980_8c.html#af0bbe78d8dc64400663d3702812f9ad8" target="_top" xlink:title=" ">
+<g id="a_node4"><a xlink:href="render__player_8c.html#af0bbe78d8dc64400663d3702812f9ad8" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="black" points="328.5,-58 328.5,-88 455.5,-88 455.5,-58 328.5,-58"/>
 <text text-anchor="start" x="336.5" y="-76" font-family="Helvetica,sans-Serif" font-size="10.00">convert_to_fixed_point</text>
 <text text-anchor="middle" x="392" y="-65" font-family="Helvetica,sans-Serif" font-size="10.00">_matrix</text>
