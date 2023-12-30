@@ -1,7 +1,6 @@
 var variables_8h =
 [
     [ "D_80164510", "variables_8h.html#ad43ea11f2f55a17af04b0c0329ed86dd", null ],
-    [ "D_80164A28", "variables_8h.html#a3a9f5f7350aba44f0115f0a4314483dd", null ],
     [ "D_80165020", "variables_8h.html#aae96f316b0ff3330334bd1ebc69ae49d", null ],
     [ "D_80165070", "variables_8h.html#a7cda4b9766ccbf2e460770a7766f7b8b", null ],
     [ "D_801650D0", "variables_8h.html#adc7783e5340ae06ddbeb4cecdc4812bc", null ],
@@ -42,16 +41,12 @@ var variables_8h =
     [ "D_801657E8", "variables_8h.html#abf1603998259e7818f9aa28af6baa551", null ],
     [ "D_801658FE", "variables_8h.html#a47e5acad2eda5e173dd8b550aab8f87a", null ],
     [ "D_80183D60", "variables_8h.html#a88125386dff585682262221ecc2a3f2a", null ],
-    [ "D_8018CA70", "variables_8h.html#a39b36a35402cd3b3822176f455e85b9f", null ],
     [ "D_8018CE10", "variables_8h.html#a6bcde9bc5f0b209f31f65df5ad0493ad", null ],
     [ "D_8018D900", "variables_8h.html#a10973deea03f96575de006aebdb53f04", null ],
     [ "gCharacterIdByGPOverallRank", "variables_8h.html#a2fce3748266c007098feb5991f854b6a", null ],
-    [ "gGPCurrentRacePlayerIdByRank", "variables_8h.html#adf1a010814a163e8727e3737c3a81b35", null ],
-    [ "gGPCurrentRaceRankByPlayerId", "variables_8h.html#add62d9cde764b79f75bdda1e23560b29", null ],
     [ "gIsPlayerTripleAButtonCombo", "variables_8h.html#a7938ceec1384e33e20aee5fe4268f6dd", null ],
-    [ "gLapCompletionPercentByPlayerId", "variables_8h.html#a0d9b5666ed0d24b5dd4f123ddee225dc", null ],
-    [ "gLapCountByPlayerId", "variables_8h.html#a49a3a4c9b52ea6fdc196c0e9c743c0f8", null ],
     [ "gMatrixEffectCount", "variables_8h.html#abeefcb4eb9df7b90bbf608d19a9294dc", null ],
     [ "gMatrixHudCount", "variables_8h.html#aad9c206041d209aa55bc9a003fb0a21b", null ],
-    [ "gPlayerIsThrottleActive", "variables_8h.html#a6cb6314ad80d4c4d23ab5d9f57387783", null ]
+    [ "gPlayerIsThrottleActive", "variables_8h.html#a6cb6314ad80d4c4d23ab5d9f57387783", null ],
+    [ "playerHUD", "variables_8h.html#a153d67dc7a165f715d6368978f9223cc", null ]
 ];
