@@ -140,7 +140,7 @@ u8 *func_8006ED94(u8 *devAddr, u8 *baseAddress, u32 size, u32 offset)
 }
 
 void func_8006EE44(void) {
-    D_8018D1E0 = func_8006ED94((u8 *)&gTextureLogoMarioKart64, (u8 *) D_8018D9B0, 0x79E1, 0x20000);
+    gMarioKart64LogoPtr = func_8006ED94((u8 *)&gTextureLogoMarioKart64, (u8 *) D_8018D9B0, 0x79E1, 0x20000);
 }
 
 // Some kind of initalization for the Item Window part of the HUD

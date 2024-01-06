@@ -2,6 +2,8 @@
 #define DEFINES_H
 
 
+#define BANANAS_CARRIED 18
+
 /**
  * @brief Options for Controller Pak state
  */

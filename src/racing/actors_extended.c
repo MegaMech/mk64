@@ -95,7 +95,8 @@ void func_802B04E8(UNUSED struct BananaActor *arg0, s16 bananaIndex) {
 
 // Handle a banana being ran over while it is still part of a banana bunch
 void func_802B0570(struct BananaActor *banana) {
-    struct BananaBunchParent *temp_v0_2;
+    struct BananaBunchParent *bananaBunch;
+    s32 i;
 
     func_802B0464(banana->youngerIndex);
     func_802B04E8(banana, banana->elderIndex);
@@ -106,38 +107,52 @@ void func_802B0570(struct BananaActor *banana) {
     banana->unk_04 = 0x003C;
     banana->state = DESTROYED_BANANA;
     banana->velocity[1] = 3.0f;
-    temp_v0_2 = (struct BananaBunchParent *) &gActorList[banana->parentIndex];
-    temp_v0_2->bananaIndices[0] = -1;
-    temp_v0_2->bananaIndices[1] = -1;
-    temp_v0_2->bananaIndices[2] = -1;
-    temp_v0_2->bananaIndices[3] = -1;
-    temp_v0_2->bananaIndices[4] = -1;
+    bananaBunch = (struct BananaBunchParent *) &gActorList[banana->parentIndex];
+    for (i = 0; i < BANANAS_CARRIED; i++) {
+        bananaBunch->bananaIndices[i] = -1;
+    }
+    // bananaBunch->bananaIndices[1] = -1;
+    // bananaBunch->bananaIndices[2] = -1;
+    // bananaBunch->bananaIndices[3] = -1;
+    // bananaBunch->bananaIndices[4] = -1;
 }
 
 // Drop a banana from a banana bunch?
 void func_802B0648(struct BananaBunchParent *banana_bunch) {
     s16 elderIndex;
     struct BananaActor *banana;
+    s32 i;
 
     banana_bunch->bananasAvailable -= 1;
-    if (banana_bunch->bananaIndices[4] != -1) {
-        banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[4]];
-        banana_bunch->bananaIndices[4] = -1;
-    } else if (banana_bunch->bananaIndices[3] != -1) {
-        banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[3]];
-        banana_bunch->bananaIndices[3] = -1;
-    } else if (banana_bunch->bananaIndices[2] != -1) {
-        banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[2]];
-        banana_bunch->bananaIndices[2] = -1;
-    } else if (banana_bunch->bananaIndices[1] != -1) {
-        banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[1]];
-        banana_bunch->bananaIndices[1] = -1;
-    } else if (banana_bunch->bananaIndices[0] != -1) {
-        banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[0]];
-        banana_bunch->bananaIndices[0] = -1;
-    } else {
-        return;
+    for (i = BANANAS_CARRIED; i > 0; i--) {
+        if (banana_bunch->bananaIndices[i] != -1) {
+            banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[4]];
+            banana_bunch->bananaIndices[i] = -1;
+            goto a;
+        }
     }
+    return;
+    a:
+
+    //banana_bunch->bananasAvailable -= 1;
+    // if (banana_bunch->bananaIndices[4] != -1) {
+    //     banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[4]];
+    //     banana_bunch->bananaIndices[4] = -1;
+    // } else if (banana_bunch->bananaIndices[3] != -1) {
+    //     banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[3]];
+    //     banana_bunch->bananaIndices[3] = -1;
+    // } else if (banana_bunch->bananaIndices[2] != -1) {
+    //     banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[2]];
+    //     banana_bunch->bananaIndices[2] = -1;
+    // } else if (banana_bunch->bananaIndices[1] != -1) {
+    //     banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[1]];
+    //     banana_bunch->bananaIndices[1] = -1;
+    // } else if (banana_bunch->bananaIndices[0] != -1) {
+    //     banana = (struct BananaActor *) &gActorList[banana_bunch->bananaIndices[0]];
+    //     banana_bunch->bananaIndices[0] = -1;
+    // } else {
+    //     return;
+    // }
 
     banana->state = DROPPED_BANANA;
     banana->unk_04 = 0x00B4;
@@ -218,78 +233,57 @@ void update_actor_banana_bunch(struct BananaBunchParent *banana_bunch) {
     Player *owner;
     struct Controller *controller;
     s32 someCount;
+    s32 i;
 
     owner = &gPlayers[banana_bunch->playerId];
     switch (banana_bunch->state) {
     case 0:
-        func_802B2914(banana_bunch, owner, 0);
-        banana_bunch->unk_04 = 4;
-        banana_bunch->state = 1;
-        banana_bunch->bananasAvailable = 1;
-        break;
-    case 1:
-        banana_bunch->unk_04 -= 1;
-        if (banana_bunch->unk_04 == 0) {
-            func_802B2914(banana_bunch, owner, 1);
-            banana_bunch->unk_04 = 4;
-            banana_bunch->state = 2;
-            banana_bunch->bananasAvailable += 1;
-        }
-        break;
-    case 2:
-        banana_bunch->unk_04 -= 1;
-        if (banana_bunch->unk_04 == 0) {
-            func_802B2914(banana_bunch, owner, 2);
-            banana_bunch->unk_04 = 4;
-            banana_bunch->state = 3;
-            banana_bunch->bananasAvailable += 1;
-        }
-        break;
-    case 3:
-        banana_bunch->unk_04 -= 1;
-        if (banana_bunch->unk_04 == 0) {
-            func_802B2914(banana_bunch, owner, 3);
-            banana_bunch->unk_04 = 4;
-            banana_bunch->state = 4;
-            banana_bunch->bananasAvailable += 1;
-        }
-        break;
-    case 4:
-        banana_bunch->unk_04 -= 1;
-        if (banana_bunch->unk_04 == 0) {
-            func_802B2914(banana_bunch, owner, 4);
+        for (i = 0; i < BANANAS_CARRIED; i++) {
+            func_802B2914(banana_bunch, owner, i);
             banana_bunch->unk_04 = 4;
             banana_bunch->state = 5;
             banana_bunch->bananasAvailable += 1;
         }
         break;
+    
     case 5:
         banana_bunch->state = 6;
         // Unnecessary type-casting done here purely to help with understanding.
         // We're setting the ->flags of BananaActors, not plain Actors.
-        ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[0]])->flags |= 0x5000;
-        ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[1]])->flags |= 0x5000;
-        ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[2]])->flags |= 0x5000;
-        ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[3]])->flags |= 0x5000;
-        ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[4]])->flags |= 0x5000;
+
+        for (i = 0; i < BANANAS_CARRIED; i++) {
+            ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[i]])->flags |= 0x5000;
+        }
+
+        // ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[1]])->flags |= 0x5000;
+        // ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[2]])->flags |= 0x5000;
+        // ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[3]])->flags |= 0x5000;
+        // ((struct BananaActor*)&gActorList[banana_bunch->bananaIndices[4]])->flags |= 0x5000;
         break;
     case 6:
         someCount = 0;
-        if (func_802B09C0(banana_bunch->bananaIndices[0]) == 1) {
-            someCount = 1;
+
+        for (i = 0; i < BANANAS_CARRIED; i++) {
+            if (func_802B09C0(banana_bunch->bananaIndices[i]) == 1) {
+                someCount += 1;
+            }            
         }
-        if (func_802B09C0(banana_bunch->bananaIndices[1]) == 1) {
-            someCount += 1;
-        }
-        if (func_802B09C0(banana_bunch->bananaIndices[2]) == 1) {
-            someCount += 1;
-        }
-        if (func_802B09C0(banana_bunch->bananaIndices[3]) == 1) {
-            someCount += 1;
-        }
-        if (func_802B09C0(banana_bunch->bananaIndices[4]) == 1) {
-            someCount += 1;
-        }
+
+        // if (func_802B09C0(banana_bunch->bananaIndices[0]) == 1) {
+        //     someCount = 1;
+        // }
+        // if (func_802B09C0(banana_bunch->bananaIndices[1]) == 1) {
+        //     someCount += 1;
+        // }
+        // if (func_802B09C0(banana_bunch->bananaIndices[2]) == 1) {
+        //     someCount += 1;
+        // }
+        // if (func_802B09C0(banana_bunch->bananaIndices[3]) == 1) {
+        //     someCount += 1;
+        // }
+        // if (func_802B09C0(banana_bunch->bananaIndices[4]) == 1) {
+        //     someCount += 1;
+        // }
         if (someCount == 0) {
             destroy_actor((struct Actor *) banana_bunch);
             owner->statusEffects &= ~HOLD_BANANA_EFFECT;
@@ -890,41 +884,57 @@ void func_802B2914(struct BananaBunchParent *banana_bunch, Player *player, s16 b
         newBanana->youngerIndex = -1;
         newBanana->unk_04 = 0x0014;
         newBanana->bananaId = bananaId;
-        switch (bananaId) {
-        case 0:
+
+        if (bananaId == 0) {
             newBanana->state = 2;
             banana_bunch->bananaIndices[0] = actorIndex;
             newBanana->elderIndex = -1;
-            break;
-        case 1:
-            newBanana->state = 3;
-            banana_bunch->bananaIndices[1] = actorIndex;
-            newBanana->elderIndex = banana_bunch->bananaIndices[0];
-            tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[0]];
-            tempBanana->youngerIndex = actorIndex;
-            break;
-        case 2:
-            newBanana->state = 3;
-            banana_bunch->bananaIndices[2] = actorIndex;
-            newBanana->elderIndex = banana_bunch->bananaIndices[1];
-            tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[1]];
-            tempBanana->youngerIndex = actorIndex;
-            break;
-        case 3:
-            newBanana->state = 3;
-            banana_bunch->bananaIndices[3] = actorIndex;
-            newBanana->elderIndex = banana_bunch->bananaIndices[2];
-            tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[2]];
-            tempBanana->youngerIndex = actorIndex;
-            break;
-        case 4:
-            newBanana->state = 3;
-            banana_bunch->bananaIndices[4] = actorIndex;
-            newBanana->elderIndex = banana_bunch->bananaIndices[3];
-            tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[3]];
-            tempBanana->youngerIndex = actorIndex;
-            break;
         }
+
+        if (bananaId > 0) {
+            newBanana->state = 3;
+            banana_bunch->bananaIndices[bananaId] = actorIndex;
+            newBanana->elderIndex = banana_bunch->bananaIndices[bananaId - 1];
+            tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[bananaId - 1]];
+            tempBanana->youngerIndex = actorIndex;
+        }
+
+
+        // switch (bananaId) {
+        // case 0:
+        //     newBanana->state = 2;
+        //     banana_bunch->bananaIndices[0] = actorIndex;
+        //     newBanana->elderIndex = -1;
+        //     break;
+        // case 1:
+        //     newBanana->state = 3;
+        //     banana_bunch->bananaIndices[1] = actorIndex;
+        //     newBanana->elderIndex = banana_bunch->bananaIndices[0];
+        //     tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[0]];
+        //     tempBanana->youngerIndex = actorIndex;
+        //     break;
+        // case 2:
+        //     newBanana->state = 3;
+        //     banana_bunch->bananaIndices[2] = actorIndex;
+        //     newBanana->elderIndex = banana_bunch->bananaIndices[1];
+        //     tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[1]];
+        //     tempBanana->youngerIndex = actorIndex;
+        //     break;
+        // case 3:
+        //     newBanana->state = 3;
+        //     banana_bunch->bananaIndices[3] = actorIndex;
+        //     newBanana->elderIndex = banana_bunch->bananaIndices[2];
+        //     tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[2]];
+        //     tempBanana->youngerIndex = actorIndex;
+        //     break;
+        // case 4:
+        //     newBanana->state = 3;
+        //     banana_bunch->bananaIndices[4] = actorIndex;
+        //     newBanana->elderIndex = banana_bunch->bananaIndices[3];
+        //     tempBanana = (struct BananaActor*)&gActorList[banana_bunch->bananaIndices[3]];
+        //     tempBanana->youngerIndex = actorIndex;
+        //     break;
+        // }
         if ((player->type & PLAYER_HUMAN) != 0) {
             func_800C9060(player - gPlayerOne, 0x19008012);
         }

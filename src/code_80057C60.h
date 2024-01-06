@@ -523,7 +523,7 @@ extern s32 D_8018D1D4;
 // extern s32 D_8018D1D8; -> objects.h
 
 extern s32 D_8018D1DC;
-extern u8 *D_8018D1E0;
+extern u8 *gMarioKart64LogoPtr;
 extern f32 D_8018D1E8;
 extern s32 D_8018D1EC;
 // extern s32 D_8018D1F0; -> objects.h

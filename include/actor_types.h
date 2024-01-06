@@ -4,6 +4,7 @@
 #include <ultra64.h>
 #include <macros.h>
 #include <common_structs.h>
+#include <defines.h>
 
 //#pragma GCC diagnostic push
 //#pragma GCC diagnostic ignored "-Wmicrosoft-extension"
@@ -352,7 +353,7 @@ struct BananaBunchParent {
     /* 0x08 */ f32 unk_08;
     /* 0x0C */ f32 unk_0C;
     /* 0x10 */ s16 playerId; // Player that own the bananas
-    /* 0x12 */ s16 bananaIndices[5]; // Indices in gActorList for the bananas owned by this parent
+    /* 0x12 */ s16 bananaIndices[BANANAS_CARRIED]; // Indices in gActorList for the bananas owned by this parent
     /* 0x1C */ s16 bananasAvailable;
     /* 0x1E */ s16 unk_1E;
     /* 0x20 */ f32 unk_20[4];
