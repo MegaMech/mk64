@@ -3,7 +3,7 @@
 \htmlonly
 
 How courses work in mk64
-<br>
+
 <style>
 .pagebutton {
     display: inline-block;
@@ -98,23 +98,7 @@ p {
 </a>
 </div>
 
-
-<div class="pagebutton">
-<a class="pagea" href="surfacetypes.html">
-<div class="pagelink">
-  <div class="pageimg"><img width=320 src="buttonimage.png" /></div>
-  <div class="content">
-    <div class="pageheading">Surface Types</div>
-    <div class="pagedescription">
-      <p>Surface types in mk64</p>
-    </div>
-  </div>
-</div>
-</a>
-</div>
-
 \endhtmlonly
 
 \subpage courses
-\subpage surfacetypes
 
