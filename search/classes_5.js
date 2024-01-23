@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['euaudiocmd_14641',['EuAudioCmd',['../structEuAudioCmd.html',1,'']]],
-  ['exceptionpreamble_14642',['exceptionPreamble',['../structexceptionPreamble.html',1,'']]]
+  ['euaudiocmd_0',['EuAudioCmd',['../structEuAudioCmd.html',1,'']]],
+  ['exceptionpreamble_1',['exceptionPreamble',['../structexceptionPreamble.html',1,'']]]
 ];

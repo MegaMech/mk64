@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['understanding_20the_20basics_29145',['Understanding the Basics',['../basics.html',1,'']]]
+  ['kart_2064_0',['Mario Kart 64',['../index.html',1,'']]]
 ];

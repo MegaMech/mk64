@@ -1,7 +1,7 @@
 var coursesmenu =
 [
     [ "Courses", "courses.html", [
-      [ "Courses", "courses.html#autotoc_md39", null ]
+      [ "Courses", "courses.html#courses-1", null ]
     ] ],
     [ "Surface Types", "surfacetypes.html", null ]
 ];
