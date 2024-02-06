@@ -260,7 +260,6 @@ SECTIONS
       BUILD_DIR/src/os/osViData.o(.data);
       BUILD_DIR/src/os/_Litob.o(.data);
       BUILD_DIR/src/main.o(.rodata*);
-      BUILD_DIR/src/code_80004740.o(.rodata*);
       BUILD_DIR/src/code_800029B0.o(.rodata*);
       BUILD_DIR/src/code_80005FD0.jp.o(.rodata*);
       BUILD_DIR/src/camera.o(.rodata*);
@@ -268,7 +267,6 @@ SECTIONS
       BUILD_DIR/src/player_controller.o(.rodata*);
       BUILD_DIR/src/spawn_players.o(.rodata*);
       BUILD_DIR/src/code_8003DC40.o(.rodata*);
-      BUILD_DIR/src/gbiMacro.o(.rodata*);
       BUILD_DIR/src/hud_renderer.o(.rodata*);
       BUILD_DIR/src/code_80057C60.o(.rodata*);
       BUILD_DIR/src/code_8006E9C0.o(.rodata*);
@@ -365,7 +363,6 @@ SECTIONS
       BUILD_DIR/src/racing/actors.o(.text*);
       BUILD_DIR/src/racing/skybox_and_splitscreen.o(.text*);
       BUILD_DIR/src/racing/memory.o(.text*);
-      BUILD_DIR/asm/pad_asm.o(.text*);
       BUILD_DIR/src/racing/collision.o(.text*);
       BUILD_DIR/src/racing/actors_extended.o(.text*);
       BUILD_DIR/src/racing/math_util.o(.text*);
@@ -424,21 +421,18 @@ SECTIONS
       BUILD_DIR/src/ending/dl_unk_80284EE0.inc.o(.data*);
       BUILD_DIR/src/ending/credits.jp.o(.data*);
       BUILD_DIR/src/ending/ceremony_and_credits.o(.data*);
-      BUILD_DIR/src/ending/code_80280000.o(.rodata*);
       BUILD_DIR/src/ending/podium_ceremony_actors.o(.rodata*);
       BUILD_DIR/src/ending/camera_junk.o(.rodata*);
-      BUILD_DIR/src/ending/code_80281780.o(.rodata*);
-      BUILD_DIR/src/ending/code_80281C40.o(.rodata*);
       BUILD_DIR/src/ending/credits.jp.o(.rodata*);
       BUILD_DIR/src/ending/ceremony_and_credits.o(.rodata*);
    }
    END_SEG(ending)
 
-   BEGIN_NOLOAD(endingSequences) {
-      BUILD_DIR/src/ending/code_80280000.o(.bss*);
-      BUILD_DIR/src/ending/podium_ceremony_actors.o(.bss*);
-      BUILD_DIR/src/ending/code_80281C40.o(.bss*);
-      BUILD_DIR/src/ending/ceremony_and_credits.o(.bss*);
+   BEGIN_NOLOAD(ending) {
+      BUILD_DIR/src/ending/code_80280000.o(.bss);
+      BUILD_DIR/src/ending/podium_ceremony_actors.o(.bss);
+      BUILD_DIR/src/ending/code_80281C40.o(.bss);
+      BUILD_DIR/src/ending/ceremony_and_credits.o(.bss);
    }
    END_NOLOAD(ending)
 
@@ -487,7 +481,7 @@ SECTIONS
    /* 0x802BA370 724220-729A30 [0x5810] */
    BEGIN_SEG(trigTables, LINKER_TRIG_TABLES)
    {
-        BUILD_DIR/src/data/framebuffers.o(.data*);
+        BUILD_DIR/src/data/trig_tables.o(.data);
         . = ALIGN(0x10);
    }
    END_SEG(trigTables)
