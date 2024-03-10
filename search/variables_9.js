@@ -1,7 +1,7 @@
 var searchData=
 [
   ['i_0',['i',['../unionfu.html#afdf3c26f812d7404ef51358e7622ca36',1,'fu::i'],['../unionfu.html#a6aed0becf5f2fa3047085638c8516b26',1,'fu::i']]],
-  ['id_1',['id',['../structSeqOrBankEntry.html#a416bfb04131bc8f88f9ef60c3ab53d79',1,'SeqOrBankEntry::id'],['../structStarSpawn.html#a5eae8c76eeeec38df9cdc775fba2f6fb',1,'StarSpawn::id'],['../structOSThread__s.html#ae5717f6d5c4bae34ac008184105ba4eb',1,'OSThread_s::id']]],
+  ['id_1',['id',['../structSeqOrBankEntry.html#a416bfb04131bc8f88f9ef60c3ab53d79',1,'SeqOrBankEntry::id'],['../structOSThread__s.html#ae5717f6d5c4bae34ac008184105ba4eb',1,'OSThread_s::id']]],
   ['ignoredrumpan_2',['ignoreDrumPan',['../structSequenceChannelLayer.html#abb251797e45ed3d6c1222a2ebc19ae38',1,'SequenceChannelLayer']]],
   ['image_3',['image',['../structuObjTxtrBlock__t.html#a0986d738c4f053cd108543a23029c942',1,'uObjTxtrBlock_t::image'],['../structuObjTxtrTile__t.html#ab20431a3ee535c9faf0fcbea29da051f',1,'uObjTxtrTile_t::image'],['../structuObjTxtrTLUT__t.html#a731eef3c9e66c617514422dcc7fe1252',1,'uObjTxtrTLUT_t::image']]],
   ['imageadrs_4',['imageAdrs',['../structuObjSprite__t.html#a50e8379d2765a50a3f34e8dcda5ff383',1,'uObjSprite_t']]],
@@ -45,7 +45,7 @@ var searchData=
   ['interval_42',['interval',['../structOSTimer__str.html#aea569c43b6f8cc969cd0f8a71431fa2b',1,'OSTimer_str']]],
   ['inverted_5fchecksum_43',['inverted_checksum',['../struct____OSPackId.html#ad95d778ef40568afd8eaa046fe2b6cf5',1,'__OSPackId']]],
   ['ipage_44',['ipage',['../union____OSInodeUnit.html#afb1a4073f3b025f6c6fc25e8ede9208e',1,'__OSInodeUnit']]],
-  ['isactive_45',['isActive',['../structCeremonyActor.html#a914b59d131ff77b2620ed88ed49a1838',1,'CeremonyActor::isActive'],['../structFirework.html#a6046f5d86fadba1314e1b7252fa8d7de',1,'Firework::isActive'],['../structTrainCarStuff.html#ab209d23380269a803309b31c47a56e56',1,'TrainCarStuff::isActive'],['../structPaddleWheelBoatStuff.html#a74282a8065bde5dda7225ecafb21ca49',1,'PaddleWheelBoatStuff::isActive']]],
+  ['isactive_45',['isActive',['../structCeremonyActor.html#a914b59d131ff77b2620ed88ed49a1838',1,'CeremonyActor::isActive'],['../structFirework.html#a6046f5d86fadba1314e1b7252fa8d7de',1,'Firework::isActive'],['../structTrainCarStuff.html#ab209d23380269a803309b31c47a56e56',1,'TrainCarStuff::isActive'],['../structPaddleBoatStuff.html#a49e0adc54004639404a64e1d48a0c739',1,'PaddleBoatStuff::isActive']]],
   ['iscrossingtriggeredbyindex_46',['isCrossingTriggeredByIndex',['../code__80005FD0_8c.html#a83af9aa3b6352cd4a408bb0525bf442f',1,'isCrossingTriggeredByIndex:&#160;code_80005FD0.c'],['../code__80005FD0_8h.html#ab6a6895317f9631377ee497021ad478a',1,'isCrossingTriggeredByIndex:&#160;code_80005FD0.c'],['../actors_8h.html#ab6a6895317f9631377ee497021ad478a',1,'isCrossingTriggeredByIndex:&#160;code_80005FD0.c']]],
   ['isflycam_47',['isFlycam',['../render__courses_8c.html#aa9da1128ba108a869ae75449671e29f7',1,'render_courses.c']]],
   ['issyntheticwave_48',['isSyntheticWave',['../structNoteSubEu.html#a891e0905ad10eafcf3e3e4e2207fc840',1,'NoteSubEu']]],
