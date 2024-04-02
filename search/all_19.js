@@ -11,8 +11,8 @@ var searchData=
   ['wantunused_8',['wantUnused',['../structPoolSplit.html#a8b3aa0f7abfe6076fb6b59e6d5825a15',1,'PoolSplit']]],
   ['wario_9',['WARIO',['../defines_8h.html#ade68d6c1932c4ee33cd68b2fea48157d',1,'defines.h']]],
   ['wario_5fsize_10',['WARIO_SIZE',['../defines_8h.html#a089e44fa57b7f9f6f7e6f2ad14dfce4b',1,'defines.h']]],
-  ['wario_5fstadium_5fdls_11',['wario_stadium_dls',['../all__course__offsets_8h.html#a7970e58d8bfb4a435a6cd9ec80eb6ce6',1,'wario_stadium_dls:&#160;course_offsets.inc.c'],['../wario__stadium_2course__offsets_8inc_8c.html#af801b2e3e0a356b883db14c67661ef1d',1,'wario_stadium_dls:&#160;course_offsets.inc.c']]],
-  ['wario_5fstadium_5ftextures_12',['wario_stadium_textures',['../all__course__offsets_8h.html#afb2d218c3ac46e16ee4d7938502db297',1,'wario_stadium_textures:&#160;course_offsets.inc.c'],['../courseTable_8h.html#a31c7877a7347c7a71f52aa41b1f16803',1,'wario_stadium_textures:&#160;course_offsets.inc.c'],['../wario__stadium_2course__offsets_8inc_8c.html#a377ad398269c408a9628e432c39dbe05',1,'wario_stadium_textures:&#160;course_offsets.inc.c']]],
+  ['wario_5fstadium_5fdls_11',['wario_stadium_dls',['../all__course__offsets_8h.html#a7970e58d8bfb4a435a6cd9ec80eb6ce6',1,'wario_stadium_dls:&#160;course_offsets.c'],['../wario__stadium_2course__offsets_8c.html#af801b2e3e0a356b883db14c67661ef1d',1,'wario_stadium_dls:&#160;course_offsets.c']]],
+  ['wario_5fstadium_5ftextures_12',['wario_stadium_textures',['../all__course__offsets_8h.html#afb2d218c3ac46e16ee4d7938502db297',1,'wario_stadium_textures:&#160;course_offsets.c'],['../courseTable_8h.html#a31c7877a7347c7a71f52aa41b1f16803',1,'wario_stadium_textures:&#160;course_offsets.c'],['../wario__stadium_2course__offsets_8c.html#a377ad398269c408a9628e432c39dbe05',1,'wario_stadium_textures:&#160;course_offsets.c']]],
   ['wassoftreset_13',['wasSoftReset',['../main_8c.html#a2fa45adadd9db50419593273a86d5875',1,'wasSoftReset:&#160;main.c'],['../main_8h.html#a2fa45adadd9db50419593273a86d5875',1,'wasSoftReset:&#160;main.c']]],
   ['watchhi_5fvalidmask_14',['WATCHHI_VALIDMASK',['../R4300_8h.html#aaaf948db8a7b7a221d0e56e552a084c3',1,'R4300.h']]],
   ['watchlo_5faddrmask_15',['WATCHLO_ADDRMASK',['../R4300_8h.html#ac976023e5f03d2c48a90e1d3af2cb9da',1,'R4300.h']]],
@@ -44,5 +44,5 @@ var searchData=
   ['write_5fprotect_5ferror_41',['WRITE_PROTECT_ERROR',['../hardware_8h.html#a662c43b9eb64d896d3cac6c4073e9ba8',1,'hardware.h']]],
   ['write_5fsave_5fdata_5fgrand_5fprix_5fpoints_5fand_5fsound_5fmode_42',['write_save_data_grand_prix_points_and_sound_mode',['../save_8c.html#a2afb543114bf6836bf722730aed3fbc0',1,'write_save_data_grand_prix_points_and_sound_mode(void):&#160;save.c'],['../save_8h.html#a2afb543114bf6836bf722730aed3fbc0',1,'write_save_data_grand_prix_points_and_sound_mode(void):&#160;save.c']]],
   ['write_5fto_5fbuf_43',['write_to_buf',['../crash__screen__enhancement_8c.html#a731c8ca71f9c17edf1f694ef5f432a10',1,'crash_screen_enhancement.c']]],
-  ['wut_44',['wut',['../sherbet__land_2course__data_8inc_8c.html#a9eeed027c0accdad88ef82b59706956f',1,'wut:&#160;course_data.inc.c'],['../sherbet__land_2course__data_8inc_8h.html#a9eeed027c0accdad88ef82b59706956f',1,'wut:&#160;course_data.inc.c']]]
+  ['wut_44',['wut',['../sherbet__land_2course__data_8c.html#a9eeed027c0accdad88ef82b59706956f',1,'wut:&#160;course_data.c'],['../sherbet__land_2course__data_8h.html#a9eeed027c0accdad88ef82b59706956f',1,'wut:&#160;course_data.c']]]
 ];
